@@ -7,5 +7,5 @@
         android:title="Register"/>
 
     <item android:id="@+id/menu_exit"
-        android:title="Exit App"/>
+        android:title="Exit"/>
 </menu>
