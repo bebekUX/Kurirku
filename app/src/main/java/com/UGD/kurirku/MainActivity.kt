@@ -28,12 +28,21 @@ class MainActivity : AppCompatActivity() {
         mainLayout = findViewById(R.id.mainLayout)
         val btnregister: Button = findViewById(R.id.btnRegister)
         val btnLogin: Button = findViewById(R.id.btnLogin)
+        val btnclearText: Button = findViewById(R.id.btnclearText)
 
 
         btnregister.setOnClickListener{
             val intent = Intent(this, resultLogin::class.java)
             val mBundle = Bundle()
         }
+
+        btnclearText.setOnClickListener{
+            inputUsername.getEditText()?.setText("")
+            inputPassword.getEditText()?.setText("")
+
+            Snackbar.make(mainLayout,"Text Cleared Success", Snackbar.LENGTH_LONG) .show()
+        }
+
 
         btnLogin.setOnClickListener(View.OnClickListener {
             var checkLogin = false
@@ -52,8 +61,8 @@ class MainActivity : AppCompatActivity() {
 
             if(username == "admin" && password == "0000") checkLogin = true
             if(!checkLogin) return@OnClickListener
-            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
-            startActivity(moveHome)
+            /*val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
+            startActivity(moveHome)*/
         })
 
     }
