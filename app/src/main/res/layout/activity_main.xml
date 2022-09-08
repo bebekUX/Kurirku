@@ -76,16 +76,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegister"
@@ -95,31 +85,42 @@
         android:layout_weight="1"
         android:text="Register"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="645dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.596" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnclearText"
         android:layout_width="173dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:text="Clear Text"
         android:textColor="@color/Orange"
         app:cornerRadius="20dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="583dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnLogin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.155" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="173dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:text="Login"
         android:textColor="@color/Orange"
         app:cornerRadius="20dp"
-        tools:layout_editor_absoluteX="204dp"
-        tools:layout_editor_absoluteY="583dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.155" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

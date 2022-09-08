@@ -35,7 +35,8 @@ class register : AppCompatActivity() {
             //Intent dengan memanggil bundle
             intent.putExtra("register",mBundle)
 
-            startActivity(intent)
+            val moveMain = Intent(this, MainActivity::class.java)
+            startActivity(moveMain)
         }
     }
 }

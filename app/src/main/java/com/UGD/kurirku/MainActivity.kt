@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
 
         btnregister.setOnClickListener{
-            val intent = Intent(this, resultLogin::class.java)
-            val mBundle = Bundle()
+            val moveregister = Intent(this@MainActivity, register::class.java)
+            startActivity(moveregister)
         }
 
         btnclearText.setOnClickListener{
@@ -61,8 +61,8 @@ class MainActivity : AppCompatActivity() {
 
             if(username == "admin" && password == "0000") checkLogin = true
             if(!checkLogin) return@OnClickListener
-            /*val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
-            startActivity(moveHome)*/
+            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
+            startActivity(moveHome)
         })
 
     }
