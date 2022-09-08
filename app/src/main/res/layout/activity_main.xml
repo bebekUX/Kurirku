@@ -100,7 +100,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Login"
-            android:textColor="@color/Orange"/>
+            android:textColor="@color/Orange"
+            android:backgroundTint="@color/white"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
