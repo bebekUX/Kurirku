@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_mahasiswa"
+        android:title="Login"/>
+
+    <item android:id="@+id/menu_dosen"
+        android:title="Register"/>
+
+    <item android:id="@+id/menu_exit"
+        android:title="Exit App"/>
+</menu>
