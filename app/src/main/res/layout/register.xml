@@ -142,19 +142,21 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="260dp"
+        android:shadowRadius="100"
         android:text="Register"
+        android:textColor="@color/Orange"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/Orange" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="412dp"
         android:layout_height="334dp"
         app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="-50dp"
-        tools:layout_editor_absoluteY="471dp" />
+        tools:layout_editor_absoluteX="-45dp"
+        tools:layout_editor_absoluteY="453dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
