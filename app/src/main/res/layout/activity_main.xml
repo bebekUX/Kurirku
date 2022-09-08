@@ -70,7 +70,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,9 +99,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/white"
             android:text="Login"
             android:textColor="@color/Orange"
-            android:backgroundTint="@color/white"/>
+            app:cornerRadius="20dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
