@@ -2,7 +2,6 @@ package com.UGD.kurirku
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
@@ -16,6 +15,7 @@ class register : AppCompatActivity() {
     private lateinit var inputemail: TextInputLayout
     private lateinit var inputnoHandphone : TextInputLayout
     private lateinit var inputpassword: TextInputLayout
+    private lateinit var inputTanggalLahir: TextInputLayout
     private lateinit var btnRegister: Button
 
 
@@ -27,6 +27,7 @@ class register : AppCompatActivity() {
         inputemail = findViewById(R.id.tilEmail)
         inputnoHandphone = findViewById(R.id.tilNo_Handphone)
         inputpassword = findViewById(R.id.tilPassword)
+        inputTanggalLahir = findViewById(R.id.tilTanggalLahir)
         btnRegister = findViewById(R.id.btnRegister)
 
 
@@ -38,6 +39,7 @@ class register : AppCompatActivity() {
             val email: String = inputemail.getEditText()?.getText().toString()
             val noHanphone: String = inputnoHandphone.getEditText()?.getText().toString()
             val password: String = inputpassword.getEditText()?.getText().toString()
+            val TanggalLahir: String = inputTanggalLahir.getEditText()?.getText().toString()
 
             if(nama.isEmpty()){
                 inputnama.setError("Nama must be filled!!")
@@ -52,18 +54,22 @@ class register : AppCompatActivity() {
             if(noHanphone.isEmpty()){
                 inputnoHandphone.setError("No Handphone must be filled!!")
                 checkLogin=false
-            }else if(noHanphone.length <11){
+            }else if(noHanphone.length <10){
                 inputnoHandphone.setError("Phone Number must contain 10 number or more ")
                 checkLogin = false
             }
-
 
             if(password.isEmpty()){
                 inputpassword.setError("Password must be filled!!")
                 checkLogin = false
             }
 
-            if(nama.isNotEmpty() && email.isNotEmpty() && noHanphone.isNotEmpty() && password.isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() && noHanphone.isNotEmpty() && noHanphone.length>10) checkLogin = true
+            if(TanggalLahir.isEmpty()){
+                inputTanggalLahir.setError("Birth Date must be filled!!")
+                checkLogin = false
+            }
+
+            if(nama.isNotEmpty() && email.isNotEmpty() && noHanphone.isNotEmpty() && password.isNotEmpty() && TanggalLahir.isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() && noHanphone.isNotEmpty() && noHanphone.length>10) checkLogin = true
             if(!checkLogin) return@OnClickListener
             val moveMain = Intent(this, MainActivity::class.java)
             startActivity(moveMain)
