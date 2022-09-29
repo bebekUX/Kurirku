@@ -1,16 +1,30 @@
 package com.UGD.kurirku
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import com.UGD.kurirku.databinding.RegisterBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 
 class register : AppCompatActivity() {
+
+    private var binding: RegisterBinding? = null
+    private val BTN_REGISTER = "register_notification"
+    private val notificationId1 = 101
+
     private lateinit var inputnama: TextInputLayout
     private lateinit var inputemail: TextInputLayout
     private lateinit var inputnoHandphone : TextInputLayout
@@ -20,8 +34,13 @@ class register : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        getSupportActionBar()?.hide()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.register)
+        //setContentView(R.layout.register)
+        binding = RegisterBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
+
+        createNotificationChannel()
 
         inputnama = findViewById(R.id.tilNama)
         inputemail = findViewById(R.id.tilEmail)
@@ -31,8 +50,8 @@ class register : AppCompatActivity() {
         btnRegister = findViewById(R.id.btnRegister)
 
 
-
         btnRegister.setOnClickListener(View.OnClickListener {
+            sendNotification()
             var checkLogin = false
 
             val nama: String = inputnama.getEditText()?.getText().toString()
@@ -73,7 +92,50 @@ class register : AppCompatActivity() {
             if(!checkLogin) return@OnClickListener
             val moveMain = Intent(this, MainActivity::class.java)
             startActivity(moveMain)
-
         })
+    }
+
+    private fun createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "Notification Title"
+            val descriptionText = "Notification Description"
+
+            val channel1 = NotificationChannel(BTN_REGISTER, name, NotificationManager.IMPORTANCE_DEFAULT).apply{
+                description = descriptionText
+            }
+
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE)as NotificationManager
+            notificationManager.createNotificationChannel(channel1)
+        }
+    }
+
+    private fun sendNotification(){
+
+        val intent : Intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+
+        val broadcastIntent : Intent = Intent(this, NotificationReceiver::class.java)
+        broadcastIntent.putExtra("toastMessage", binding?.tilNama?.getEditText()?.text.toString())
+        val actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
+        val actionIntent =
+
+        val builder = NotificationCompat.Builder(this, BTN_REGISTER)
+            .setSmallIcon(R.drawable.ic_register_24)
+            .setContentTitle(binding?.tilNama?.getEditText()?.text.toString())
+            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+            .setColor(Color.BLUE)
+            .setAutoCancel(true)
+            .setOnlyAlertOnce(true)
+            .setContentIntent(pendingIntent)
+//            .addAction(R.drawable.logo, "LANJUTKAN", actionIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(this)) {
+            notify(notificationId1,builder.build())
+
+        }
     }
 }

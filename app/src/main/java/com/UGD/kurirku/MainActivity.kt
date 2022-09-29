@@ -8,6 +8,15 @@ import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.graphics.Color
+import android.os.Build
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import com.UGD.kurirku.databinding.RegisterBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainLayout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        getSupportActionBar()?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -66,4 +76,5 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
 }
