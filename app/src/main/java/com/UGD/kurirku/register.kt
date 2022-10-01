@@ -30,7 +30,6 @@ class register : AppCompatActivity() {
     private lateinit var inputnoHandphone : TextInputLayout
     private lateinit var inputpassword: TextInputLayout
     private lateinit var inputTanggalLahir: TextInputLayout
-    private lateinit var btnRegister: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,12 +46,15 @@ class register : AppCompatActivity() {
         inputnoHandphone = findViewById(R.id.tilNo_Handphone)
         inputpassword = findViewById(R.id.tilPassword)
         inputTanggalLahir = findViewById(R.id.tilTanggalLahir)
-        btnRegister = findViewById(R.id.btnRegister)
+//        btnRegister = findViewById(R.id.btnRegister)
+        val btnRegister : Button = findViewById(R.id.btnRegister)
 
 
         btnRegister.setOnClickListener(View.OnClickListener {
-            sendNotification()
             var checkLogin = false
+            sendNotification()
+            val moveMain = Intent(this@register, MainActivity::class.java)
+            val mBundle = Bundle()
 
             val nama: String = inputnama.getEditText()?.getText().toString()
             val email: String = inputemail.getEditText()?.getText().toString()
@@ -88,9 +90,13 @@ class register : AppCompatActivity() {
                 checkLogin = false
             }
 
-            if(nama.isNotEmpty() && email.isNotEmpty() && noHanphone.isNotEmpty() && password.isNotEmpty() && TanggalLahir.isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() && noHanphone.isNotEmpty() && noHanphone.length>10) checkLogin = true
+            if(nama.isNotEmpty() && email.isNotEmpty() && noHanphone.isNotEmpty() && password.isNotEmpty() && TanggalLahir.isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() && noHanphone.isNotEmpty() && noHanphone.length>10) {
+                checkLogin = true
+
+                mBundle.putString("name", nama)
+                mBundle.putString("password", password)
+            }
             if(!checkLogin) return@OnClickListener
-            val moveMain = Intent(this, MainActivity::class.java)
             startActivity(moveMain)
         })
     }
@@ -112,7 +118,7 @@ class register : AppCompatActivity() {
 
     private fun sendNotification(){
 
-        val intent : Intent = Intent(this, MainActivity::class.java).apply {
+        val intent : Intent = Intent(this@register, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
@@ -130,7 +136,7 @@ class register : AppCompatActivity() {
             .setAutoCancel(true)
             .setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
-//            .addAction(R.drawable.logo, "LANJUTKAN", actionIntent)
+            .addAction(R.drawable.logo, "LANJUTKAN", actionIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(this)) {
