@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "295758227778",
+    "project_id": "kurirku-cbf90",
+    "storage_bucket": "kurirku-cbf90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295758227778:android:d2b3fbf8adf12ca7c080db",
+        "android_client_info": {
+          "package_name": "com.UGD.kurirku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295758227778-d0k71kots6158s0b2p5a1va15igdu5ui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVTbLwpjzrOoieBNZ-wyymgs4yLcAxPYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295758227778-d0k71kots6158s0b2p5a1va15igdu5ui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

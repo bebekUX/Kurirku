@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_mahasiswa"
+    <item android:id="@+id/menu_login"
         android:title="Login"
         android:icon="@drawable/ic_login_24"/>
 
-    <item android:id="@+id/menu_dosen"
+    <item android:id="@+id/menu_Register"
         android:title="Register"
         android:icon="@drawable/ic_register_24"/>
 
-    <item android:id="@+id/home"
+    <item android:id="@+id/menu"
         android:title="Menu"
         android:icon="@drawable/ic_home_24"/>
 </menu>

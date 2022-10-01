@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
     private lateinit var mainLayout: ConstraintLayout
+    var mBundle = Bundle()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         getSupportActionBar()?.hide()
@@ -36,12 +37,12 @@ class MainActivity : AppCompatActivity() {
         inputUsername = findViewById(R.id.inputLayoutUsername)
         inputPassword = findViewById(R.id.inputLayoutPassword)
         mainLayout = findViewById(R.id.mainLayout)
-        val btnregister: Button = findViewById(R.id.btnRegister)
+        val btnRegister: Button = findViewById(R.id.btnRegister)
         val btnLogin: Button = findViewById(R.id.btnLogin)
         val btnclearText: Button = findViewById(R.id.btnclearText)
 
 
-        btnregister.setOnClickListener{
+        btnRegister.setOnClickListener{
             val moveregister = Intent(this@MainActivity, register::class.java)
             startActivity(moveregister)
         }
