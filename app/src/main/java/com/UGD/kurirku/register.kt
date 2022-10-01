@@ -120,7 +120,7 @@ class register : AppCompatActivity() {
         val broadcastIntent : Intent = Intent(this, NotificationReceiver::class.java)
         broadcastIntent.putExtra("toastMessage", binding?.tilNama?.getEditText()?.text.toString())
         val actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
-        val actionIntent =
+
 
         val builder = NotificationCompat.Builder(this, BTN_REGISTER)
             .setSmallIcon(R.drawable.ic_register_24)
