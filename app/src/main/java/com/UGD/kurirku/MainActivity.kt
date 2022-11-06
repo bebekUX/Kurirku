@@ -18,6 +18,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.UGD.kurirku.databinding.RegisterBinding
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var inputUsername: TextInputLayout
