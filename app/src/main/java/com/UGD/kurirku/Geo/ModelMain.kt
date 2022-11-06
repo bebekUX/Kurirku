@@ -1,4 +1,4 @@
-package com.UGD.kurirku
+package com.UGD.kurirku.Geo
 
 class ModelMain {
     lateinit var strName: String

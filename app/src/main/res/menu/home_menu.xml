@@ -11,4 +11,9 @@
     <item android:id="@+id/menu"
         android:title="Menu"
         android:icon="@drawable/ic_home_24"/>
+
+    <item android:id="@+id/maps"
+        android:title="Maps"
+        android:icon="@drawable/maps"/>
+
 </menu>

@@ -1,5 +1,6 @@
-package com.UGD.kurirku
+package com.UGD.kurirku.Geo
 
+import com.UGD.kurirku.R
 import kotlinx.android.synthetic.main.layout_tooltip.view.*
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker

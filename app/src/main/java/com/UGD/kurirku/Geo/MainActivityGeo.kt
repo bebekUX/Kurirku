@@ -1,10 +1,11 @@
-package com.UGD.kurirku
+package com.UGD.kurirku.Geo
 
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.widget.Toast
+import com.UGD.kurirku.R
+import kotlinx.android.synthetic.main.activity_home_geo.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -16,7 +17,6 @@ import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.OverlayItem
 import java.io.IOException
 import java.nio.charset.StandardCharsets
-import java.util.prefs.Preferences
 
 class MainActivityGeo : AppCompatActivity() {
     var modelMainList: MutableList<ModelMain> = ArrayList()
@@ -25,7 +25,7 @@ class MainActivityGeo : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home_geo)
 
         org.osmdroid.config.Configuration.getInstance().load(this,PreferenceManager.getDefaultSharedPreferences(this))
 
