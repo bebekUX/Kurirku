@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/Orange"
     tools:context=".FragmentGeo">
 
     <TextView
@@ -17,7 +18,7 @@
         android:layout_marginEnd="43dp"
         android:text="Lokasi Kurirku Terdekat"
         android:textColor="@color/black"
-        android:textSize="36sp"
+        android:textSize="31sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,8 +32,17 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="43dp"
         android:text="LOKASI"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/Orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo" />
+
 </LinearLayout>

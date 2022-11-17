@@ -3,13 +3,15 @@
     {
       "geometry": {
         "location": {
-          "lat": -7.779433,
-          "lng": 110.415782
+          "lat": -7.823349,
+          "lng": 110.365747
         }
       },
-      "name": "Kampus 3 Universitas Atma Jaya Yogyakarta",
-      "vicinity": "Jl. Barbasari No.43, Janti, Caturtunggal, Kec.Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+      "name": "Cabang 1 Kurirku",
+      "vicinity": "Jl. Jogokaryan, Mantrijeron, Kec. Mantrijeron, Kota Yogyakarta, Daerah Istimewa Yogyakarta"
     }
   ],
   "status": "OK"
 }
+
+
