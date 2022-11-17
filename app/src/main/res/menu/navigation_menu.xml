@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_login"
-        android:title="Login"
-        android:icon="@drawable/ic_login_24"/>
-
-    <item android:id="@+id/menu_Register"
-        android:title="Register"
-        android:icon="@drawable/ic_register_24"/>
-
-    <item android:id="@+id/menu"
-        android:title="Menu"
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:enabled="true"
         android:icon="@drawable/ic_home_24"/>
 
     <item android:id="@+id/maps"
         android:title="Maps"
+        android:enabled="true"
+        android:icon="@drawable/maps"/>
+
+    <item android:id="@+id/pengiriman"
+        android:title="Pengiriman"
+        android:enabled="true"
+        android:icon="@drawable/maps"/>
+
+    <item android:id="@+id/profil"
+        android:title="Profil"
+        android:enabled="true"
         android:icon="@drawable/maps"/>
 
 </menu>
