@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import androidx.fragment.app.Fragment
+import com.UGD.kurirku.PDF.FragmentPDF
 import com.google.android.material.navigation.NavigationBarView
 
 class HomeActivity : AppCompatActivity() {
@@ -33,6 +34,10 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.profil -> {
                     changeFragment(FragmentProfil())
+                    true
+                }
+                R.id.pdf -> {
+                    changeFragment(FragmentPDF())
                     true
                 }
                 else -> false

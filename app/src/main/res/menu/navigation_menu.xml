@@ -20,4 +20,9 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_person_24"/>
 
+    <item android:id="@+id/pdf"
+        android:title="PDF"
+        android:enabled="true"
+        android:icon="@drawable/ic_login_24"/>
+
 </menu>
