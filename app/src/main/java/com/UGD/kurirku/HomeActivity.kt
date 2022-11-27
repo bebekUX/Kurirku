@@ -22,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
         botNav.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.home -> {
+                    changeFragment(FragmentHome())
                     true
                 }
                 R.id.maps -> {

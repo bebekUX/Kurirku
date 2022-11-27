@@ -23,6 +23,6 @@
     <item android:id="@+id/pdf"
         android:title="PDF"
         android:enabled="true"
-        android:icon="@drawable/ic_login_24"/>
+        android:icon="@drawable/ic_baseline_picture_as_pdf_24"/>
 
 </menu>

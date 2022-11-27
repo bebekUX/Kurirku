@@ -3,35 +3,39 @@ package com.UGD.kurirku.PDF
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.pdf.PdfDocument
+import android.media.Image
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.UGD.kurirku.R
 import com.UGD.kurirku.databinding.ActivityPdfBinding
 import com.itextpdf.barcodes.BarcodeQRCode
 import com.itextpdf.io.image.ImageDataFactory
-import com.itextpdf.io.source.ByteArrayOutputStream
 import com.itextpdf.kernel.colors.ColorConstants
 import com.itextpdf.kernel.geom.PageSize
-import com.itextpdf.kernel.pdf.PdfDocument
 import com.itextpdf.kernel.pdf.PdfWriter
-import com.itextpdf.layout.Document
 import com.itextpdf.layout.element.Cell
-import com.itextpdf.layout.element.Image
 import com.itextpdf.layout.element.Paragraph
 import com.itextpdf.layout.element.Table
 import com.itextpdf.layout.property.HorizontalAlignment
 import com.itextpdf.layout.property.TextAlignment
+import com.itextpdf.styledxmlparser.css.CommonCssConstants.CENTER
+import com.lowagie.text.pdf.PdfName.CENTER
+import org.intellij.lang.annotations.JdkConstants
+import org.w3c.dom.Document
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+
 
 class ActivityPDF : AppCompatActivity() {
 
@@ -71,7 +75,7 @@ class ActivityPDF : AppCompatActivity() {
         //ini berguna untuk akses Writing ke Storage HP kalian dalam mode Download.
         //harus diketik jangan COPAS!!!!
         val pdfPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString()
-        val file = File(pdfPath, "pdf_10774.pdf")
+        val file = File(pdfPath, "pdf_kurirku.pdf")
         FileOutputStream(file)
 
         //inisaliasi pembuatan PDF
@@ -101,7 +105,7 @@ class ActivityPDF : AppCompatActivity() {
         val width = floatArrayOf(100f, 100f)
         val table = Table(width)
         //pengisian table dengan data-data
-        table.setHorizontalAlignment(HorizontalAlignment.CENTER)
+        table.setHorizontalAlignment(JdkConstants.HorizontalAlignment.CENTER)
         table.addCell(Cell().add(Paragraph("Nama Diri")))
         table.addCell(Cell().add(Paragraph(nama)))
         table.addCell(Cell().add(Paragraph("Umur")))
@@ -131,7 +135,8 @@ class ActivityPDF : AppCompatActivity() {
                                         ${LocalTime.now().format(timeFormatter)}
                                         """.trimIndent())
         val qrCodeObject = barcodeQRCode.createFormXObject(ColorConstants.BLACK, pdfDocument)
-        val qrCodeImage = Image(qrCodeObject).setWidth(80f).setHorizontalAlignment(HorizontalAlignment.CENTER)
+        val qrCodeImage = Image(qrCodeObject).setWidth(80f).setHorizontalAlignment(
+            HorizontalAlignment.CENTER)
 
         document.add(image)
         document.add(namapengguna)
