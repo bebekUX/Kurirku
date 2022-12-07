@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Nama"
         android:inputType="textPersonName"/>
 
     <EditText
@@ -43,14 +43,14 @@
         android:hint="Alamat"
         android:inputType="textAutoComplete"/>
 
-    <EditText
-        android:id="@+id/editTextKampus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:ems="10"
-        android:hint="Nama Kampus"
-        android:inputType="text"/>
+<!--    <EditText-->
+<!--        android:id="@+id/editTextKampus"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="12dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Nama Kampus"-->
+<!--        android:inputType="text"/>-->
 
     <Button
         android:id="@+id/buttonSave"

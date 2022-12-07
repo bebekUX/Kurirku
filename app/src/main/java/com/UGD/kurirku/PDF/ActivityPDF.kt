@@ -46,13 +46,12 @@ class ActivityPDF : AppCompatActivity() {
             val umur = binding!!.editTextUmur.text.toString()
             val tlp = binding!!.editTextHP.text.toString()
             val alamat = binding!!.editTextAlamat.text.toString()
-            val kampus = binding!!.editTextKampus.text.toString()
             try {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    if (nama.isEmpty() && umur.isEmpty() && tlp.isEmpty() && alamat.isEmpty() && kampus.isEmpty()){
+                    if (nama.isEmpty() && umur.isEmpty() && tlp.isEmpty() && alamat.isEmpty()){
                         Toast.makeText(applicationContext,"Semuanya Tidak boleh Kosong" , Toast.LENGTH_SHORT).show()
                     }else {
-                        createPdf(nama, umur, tlp, alamat, kampus)
+                        createPdf(nama, umur, tlp, alamat)
                     }
 
                 }
@@ -67,11 +66,11 @@ class ActivityPDF : AppCompatActivity() {
     @Throws(
         FileNotFoundException::class
     )
-    private fun createPdf(nama: String, umur: String, tlp: String, alamat: String, kampus: String) {
+    private fun createPdf(nama: String, umur: String, tlp: String, alamat: String) {
         //ini berguna untuk akses Writing ke Storage HP kalian dalam mode Download.
         //harus diketik jangan COPAS!!!!
         val pdfPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString()
-        val file = File(pdfPath, "pdf_10774.pdf")
+        val file = File(pdfPath, "Kurirku.pdf")
         FileOutputStream(file)
 
         //inisaliasi pembuatan PDF
@@ -89,12 +88,11 @@ class ActivityPDF : AppCompatActivity() {
         val bitmapData = stream.toByteArray()
         val imageData = ImageDataFactory.create(bitmapData)
         val image = Image(imageData)
-        val namapengguna = Paragraph("Identitas Pengguna").setBold().setFontSize(24f)
+        val namapengguna = Paragraph("Identitas Kurirku").setBold().setFontSize(24f)
             .setTextAlignment(TextAlignment.CENTER)
         val group = Paragraph(
             """
-                        Berikut adalah
-                        Nama Pengguna UAJY 2022/2023
+                        Pengguna Kurirku 
                         """.trimIndent()).setTextAlignment(TextAlignment.CENTER).setFontSize(12f)
 
         //proses pembuatan table
@@ -110,8 +108,6 @@ class ActivityPDF : AppCompatActivity() {
         table.addCell(Cell().add(Paragraph(tlp)))
         table.addCell(Cell().add(Paragraph("Alamat Domisili")))
         table.addCell(Cell().add(Paragraph(alamat)))
-        table.addCell(Cell().add(Paragraph("Nama Kampus")))
-        table.addCell(Cell().add(Paragraph(kampus)))
         val dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
         table.addCell(Cell().add(Paragraph("Tanggal Buat PDF")))
         table.addCell(Cell().add(Paragraph(LocalDate.now().format(dateTimeFormatter))))
@@ -126,7 +122,6 @@ class ActivityPDF : AppCompatActivity() {
                                         $umur
                                         $tlp
                                         $alamat
-                                        $kampus
                                         ${LocalDate.now().format(dateTimeFormatter)}
                                         ${LocalTime.now().format(timeFormatter)}
                                         """.trimIndent())

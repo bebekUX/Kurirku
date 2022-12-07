@@ -8,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.UGD.kurirku.R
 import kotlinx.android.synthetic.main.fragment_pdfragment.*
+import com.UGD.kurirku.databinding.FragmentPdfragmentBinding
 
 class FragmentPDF : Fragment() {
-    private var bindingPDF : FragmentPDF?=null
+    private var bindingPDF : FragmentPdfragmentBinding?=null
     private val binding get() = bindingPDF!!
 
     override fun onCreateView(
@@ -18,14 +19,17 @@ class FragmentPDF : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pdfragment, container, false)
-        val view = binding
+        bindingPDF = FragmentPdfragmentBinding.inflate(inflater,container,false)
+        val view = binding.root
+        return view
+//        return inflater.inflate(R.layout.fragment_pdfragment, container, false)
+//        val view = binding
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btn_pdf.setOnClickListener {
+        binding.btnPdf.setOnClickListener {
             val intent = Intent(activity, ActivityPDF::class.java)
             startActivity(intent)
         }

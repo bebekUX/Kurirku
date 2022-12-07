@@ -9,7 +9,19 @@
       },
       "name": "Cabang 1 Kurirku",
       "vicinity": "Jl. Jogokaryan, Mantrijeron, Kec. Mantrijeron, Kota Yogyakarta, Daerah Istimewa Yogyakarta"
+    },
+
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.783217,
+          "lng":  110.419678
+        }
+      },
+      "name": "Cabang 2 Kurirku",
+      "vicinity": "Kalongan, Maguwoharjo, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta"
     }
+
   ],
   "status": "OK"
 }

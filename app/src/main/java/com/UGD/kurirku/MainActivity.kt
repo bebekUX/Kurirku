@@ -17,6 +17,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -87,12 +88,12 @@ class MainActivity : AppCompatActivity() {
             val password: String = inputPassword.getEditText()?.getText().toString()
 
             if(username.isEmpty()){
-                inputUsername.setError("Username Must Be Filled With Text")
+                Toast.makeText(this@MainActivity, "Username tidak boleh kosong!", Toast.LENGTH_SHORT).show()
                 checkLogin = false
             }
 
             if(password.isEmpty()){
-                inputPassword.setError("Password Must Be Filled With Text")
+                Toast.makeText(this@MainActivity, "Password tidak boleh kosong!", Toast.LENGTH_SHORT).show()
                 checkLogin = false
             }
 
@@ -112,18 +113,18 @@ class MainActivity : AppCompatActivity() {
                 checkLogin = false
 
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
-                builder.setTitle("Password atau Username Salah")
-                    .setPositiveButton("Yes"){ dialog, which ->}
-                    .show()
+//                builder.setTitle("Password atau Username Salah")
+//                    .setPositiveButton("Yes"){ dialog, which ->}
+//                    .show()
             }
 
             if (username == "admin" && password == "admin"){
                 val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
 
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
-                builder.setTitle("ANDA ADALAH ADMIN")
-                    .setPositiveButton("Yes"){ dialog, which ->}
-                    .show()
+//                builder.setTitle("ANDA ADALAH ADMIN")
+//                    .setPositiveButton("Yes"){ dialog, which ->}
+//                    .show()
 
                 createNotificationChannel()
                 sendNotification()
