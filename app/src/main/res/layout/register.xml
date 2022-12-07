@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="135dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/tilEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/Orange"
+            android:layout_marginTop="5dp"
             android:hint="Nama" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+
         android:layout_marginBottom="540dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/Orange"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="50dp"
             android:hint="Email"
             />
     </com.google.android.material.textfield.TextInputLayout>
